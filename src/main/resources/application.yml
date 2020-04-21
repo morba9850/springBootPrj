@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    password: 9850
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:7777/best?useSSL=false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+    show-sql: false
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  profiles:
+    include: oauth
