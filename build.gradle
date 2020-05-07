@@ -39,6 +39,12 @@ dependencies {
     compile('org.jsoup:jsoup:1.8.3')
 /*    compile('org.springframework.session:spring-session-jdbc')*/
 
+    // spring-data-redis
+    compile('org.springframework.boot:spring-boot-starter-data-redis')
+    //embedded-redis
+    compile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
+
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("org.springframework.security:spring-security-test")
 }

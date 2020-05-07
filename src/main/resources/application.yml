@@ -13,3 +13,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   profiles:
     include: oauth
+    active: local
+  redis:
+    host: 192.168.138.131
+    port: 6379
+
