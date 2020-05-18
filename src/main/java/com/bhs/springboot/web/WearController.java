@@ -1,4 +1,3 @@
-/*
 package com.bhs.springboot.web;
 
 import com.bhs.springboot.domain.WearStats;
@@ -31,4 +30,3 @@ public class WearController {
 
 }
 
-*/

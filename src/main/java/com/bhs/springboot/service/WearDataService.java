@@ -9,29 +9,34 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class WearDataService {
 
     private static String WEAR_DATA_URL = "https://www.musinsa.com/index.php?m=street&_mon=";
 
-    @PostConstruct
-    public void getWearDatas() throws IOException {
-        Document doc = Jsoup.connect(WEAR_DATA_URL).get();
-        Elements contents = doc.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
 
+    public List<WearStats> getWearDatas() throws IOException {
+
+        List<WearStats> wearStatsList = new ArrayList<>();
+        Document doc = Jsoup.connect(WEAR_DATA_URL).get();
+
+        Elements contents = doc.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
 
         for(Element content : contents) {
 
             WearStats wearStats = WearStats.builder()
-                    .photo(content.select("img").text())
+                    .photo(content.select("img").attr("src"))
                     .build();
 
-            System.out.println(photo);
+        wearStatsList.add(wearStats);
             System.out.println(wearStats.toString());
         }
+
+        return wearStatsList;
 
     }
 

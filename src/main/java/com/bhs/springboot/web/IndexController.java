@@ -44,6 +44,15 @@ public class IndexController {
         return "posts-update";
     }
 
+    @GetMapping("/myinfo")
+    public String myInfo() {
+        return "myinfo";
+    }
+
+    @GetMapping("/diary")
+    public String diary() {
+        return "diary";
+    }
 
 
 
