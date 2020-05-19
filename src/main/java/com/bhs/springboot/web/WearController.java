@@ -1,6 +1,6 @@
 package com.bhs.springboot.web;
 
-import com.bhs.springboot.domain.WearStats;
+import com.bhs.springboot.dto.WearStats;
 import com.bhs.springboot.service.WearDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -23,6 +23,8 @@ public class WearController {
         List<WearStats> wearStatsList = wearDataService.getWearDatas();
 
         model.addAttribute("wearStats", wearStatsList);
+
+
 
         return "wear";
 

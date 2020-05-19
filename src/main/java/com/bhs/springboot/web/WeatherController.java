@@ -1,7 +1,8 @@
 package com.bhs.springboot.web;
 
 
-import com.bhs.springboot.domain.WeatherStats;
+import com.bhs.springboot.dto.AreaStats;
+import com.bhs.springboot.dto.WeatherStats;
 import com.bhs.springboot.service.WeatherDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,13 @@ public class WeatherController {
 
 
         List<WeatherStats> weatherStatsList = weatherDataService.getWeatherDatas();
+        List<AreaStats> areaStatsList = weatherDataService.getAreaDatas();
 
         model.addAttribute("weatherStats", weatherStatsList);
+        model.addAttribute("areaStats", areaStatsList);
+
+        System.out.println(areaStatsList);
+        System.out.println("끝");
 
         return "weather";
     }

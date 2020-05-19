@@ -1,4 +1,4 @@
-package com.bhs.springboot.domain;
+package com.bhs.springboot.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +12,8 @@ import lombok.ToString;
 
 public class WearStats {
     private String photo;
-
-    private String name;
+    private String photo2;
+    private String gphoto;
+    private String mphoto;
 
 }

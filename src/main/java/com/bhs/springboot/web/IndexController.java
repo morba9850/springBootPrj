@@ -2,7 +2,7 @@ package com.bhs.springboot.web;
 
 import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.service.PostsService;
-import com.bhs.springboot.web.dto.PostsResponseDto;
+import com.bhs.springboot.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

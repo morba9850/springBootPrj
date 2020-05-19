@@ -38,30 +38,33 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                        <img src="img/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4 rounded">
-                        <h3 class="mb-3">데이터1</h3>
-                        <h5>데이터2</h5>
 
-                    </div>
+                    {{#wearStats}}
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                        <img src="img/person_2.jpg" alt="Image placeholder" class="img-fluid mb-4 rounded">
-                        <h3 class="mb-3">Rob Woodstone</h3>
-                        <h5>1234</h5>
-
+                        <img src="{{photo}}" alt="Image placeholder" class="img-fluid mb-4 rounded">
+                        <h3 class="mb-3">거리 패션</h3>
+                        <h5>man</h5>
                     </div>
+
+
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                        <img src="img/person_3.jpg" alt="Image placeholder" class="img-fluid mb-4 rounded">
-                        <h3 class="mb-3">Steph Gold</h3>
-                        <h5>1234</h5>
-
+                        <img src="{{photo2}}" class="img-fluid mb-4 rounded">
+                        <h3 class="mb-3">거리 패션</h3>
+                        <h5>woman</h5>
                     </div>
+
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{{mphoto}}" alt="Image placeholder" class="img-fluid mb-4 rounded">
+                    <h3 class="mb-3">샵 스탭</h3>
+                    <h5>man</h5>
+                    </div>
+
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                        <img src="img/person_4.jpg" alt="Image placeholder" class="img-fluid mb-4 rounded">
-                        <h3 class="mb-3">Jon White</h3>
-                        <h5>1234</h5>
-
+                        <img src="{{gphoto}}" alt="Image placeholder" class="img-fluid mb-4 rounded">
+                        <h3 class="mb-3">샵 스탭</h3>
+                        <h5>woman</h5>
                     </div>
+                    {{/wearStats}}
                 </div>
             </div>
         </div> <!-- .section -->

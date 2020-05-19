@@ -2,16 +2,15 @@ package com.bhs.springboot.service;
 
 import com.bhs.springboot.domain.posts.Posts;
 import com.bhs.springboot.domain.posts.PostsRepository;
-import com.bhs.springboot.web.dto.PostsListResponseDto;
-import com.bhs.springboot.web.dto.PostsResponseDto;
-import com.bhs.springboot.web.dto.PostsSaveRequestDto;
-import com.bhs.springboot.web.dto.PostsUpdateRequestDto;
+import com.bhs.springboot.dto.PostsListResponseDto;
+import com.bhs.springboot.dto.PostsResponseDto;
+import com.bhs.springboot.dto.PostsSaveRequestDto;
+import com.bhs.springboot.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
