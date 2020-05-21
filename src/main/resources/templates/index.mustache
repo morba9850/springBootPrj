@@ -6,15 +6,15 @@
         <div class="col-md-6">
             <a href="/posts/save" role="button"
                class="btn btn-primary">글 등록</a>
-            {{#userName}}
-                Logged in as: <span id="user">{{userName}}
+            {{#userNames}}
+                name: <span id="user">{{userNames}}
         </span>
             <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/userName}}
-            {{^userName}}
+                {{/userNames}}
+            {{^userNames}}
                 <a href="/oauth2/authorization/google" class="btn btn-success active"
                    role="button">Google Login</a>
-                {{/userName}}
+                {{/userNames}}
         </div>
     </div>
     <br>
@@ -42,3 +42,36 @@
 </div>
 
 {{>layout/footer}}
+
+
+<div class="main-wrap">
+    <div class="cover_1 cover_sm">
+        <div class="img_bg" style="background-image: url(img/slider-1.jpg);" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-7 text-center" data-aos="fade-up">
+                        <h2 class="heading mb-4">Day n Day</h2>
+                        {{#userNames}}
+                            <div class="date-info">name : {{userNames}}
+                            </div>
+                            <div class="author-info"> <a href="#">Day n Day!</a></div>
+                            <div class="author-info"><span class="seperator">|</span> <a href="#">Loout</a></div>
+                        {{/userNames}}
+                        {{^userNames}}
+                            <div class="post-info">
+
+                                <div class="category-info"><a href="https://accounts.google.com/signup/v2/webcreateaccount?continue=https%3A%2F%2Fwww.google.com%2F%3Fhl%3Dko&hl=ko&dsh=S-1929214590%3A1590019849165225&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp" data-title="View all posts in Lifestyle" title="View all posts in Lifestyle">Google Sign Up
+                                </a></div>
+                                <div class="category-info"><span class="seperator">|</span> <a href="https://accounts.google.com/signin/v2/usernamerecovery?hl=ko&passive=true&continue=https%3A%2F%2Fwww.google.com%2F%3Fhl%3Dko&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Forgot?
+                                </a></div>
+                                <div class="author-info"><span class="seperator">|</span> <a href="#">Login</a></div>
+                            </div>
+                        {{/userNames}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .cover_1 -->
+</div> <!-- .main-wrap -->
+
