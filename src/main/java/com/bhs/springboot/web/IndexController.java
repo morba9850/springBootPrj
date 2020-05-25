@@ -1,8 +1,9 @@
 package com.bhs.springboot.web;
 
+import com.bhs.springboot.config.auth.LoginUser;
 import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.service.PostsService;
-import com.bhs.springboot.dto.PostsResponseDto;
+import com.bhs.springboot.dto.postDto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +20,10 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
 
         if (user != null) {
             model.addAttribute("userNames", user.getName());
@@ -47,14 +48,25 @@ public class IndexController {
     }
 
     @GetMapping("/myinfo")
-    public String myInfo() {
+    public String myInfo(Model model, @LoginUser SessionUser user) {
+
+        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
+        model.addAttribute("userNames", user.getName());
+
+
         return "myinfo";
     }
 
     @GetMapping("/diary")
-    public String diary() {
+    public String diary(Model model, @LoginUser SessionUser user) {
+
+        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
+        model.addAttribute("userNames", user.getName());
+        model.addAttribute("posts", postsService.findAllDesc());
+
         return "diary";
     }
+
 
 
 

@@ -1,8 +1,8 @@
 package com.bhs.springboot.web;
 
 import com.bhs.springboot.service.PostsService;
-import com.bhs.springboot.dto.PostsSaveRequestDto;
-import com.bhs.springboot.dto.PostsUpdateRequestDto;
+import com.bhs.springboot.dto.postDto.PostsSaveRequestDto;
+import com.bhs.springboot.dto.postDto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

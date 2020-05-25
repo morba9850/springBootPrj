@@ -1,4 +1,4 @@
-package com.bhs.springboot.dto;
+package com.bhs.springboot.dto.postDto;
 
 import com.bhs.springboot.domain.posts.Posts;
 import lombok.Getter;

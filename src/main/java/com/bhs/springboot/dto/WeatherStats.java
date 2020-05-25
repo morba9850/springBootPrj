@@ -11,9 +11,10 @@ public class WeatherStats {
 
 
 
-    private String temperature;
+    private int temperature;
+    private int rain;
 
-    private String rain;
+    private String ulray;
     private String weather;
     private String ondo;
 

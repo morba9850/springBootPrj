@@ -2,10 +2,10 @@ package com.bhs.springboot.service;
 
 import com.bhs.springboot.domain.posts.Posts;
 import com.bhs.springboot.domain.posts.PostsRepository;
-import com.bhs.springboot.dto.PostsListResponseDto;
-import com.bhs.springboot.dto.PostsResponseDto;
-import com.bhs.springboot.dto.PostsSaveRequestDto;
-import com.bhs.springboot.dto.PostsUpdateRequestDto;
+import com.bhs.springboot.dto.postDto.PostsListResponseDto;
+import com.bhs.springboot.dto.postDto.PostsResponseDto;
+import com.bhs.springboot.dto.postDto.PostsSaveRequestDto;
+import com.bhs.springboot.dto.postDto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
