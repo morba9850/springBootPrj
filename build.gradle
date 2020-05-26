@@ -35,10 +35,10 @@ dependencies {
 
 
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
-//    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+
     compile('org.jsoup:jsoup:1.8.3')
 /*    compile('org.springframework.session:spring-session-jdbc')*/
-    compile('org.springframework.session:spring-session-jdbc')
+/*    compile('org.springframework.session:spring-session-jdbc')*/ //이 gradle만쓰면 오려가 쳐뜨네
     // spring-data-redis
     compile('org.springframework.boot:spring-boot-starter-data-redis')
     //embedded-redis
