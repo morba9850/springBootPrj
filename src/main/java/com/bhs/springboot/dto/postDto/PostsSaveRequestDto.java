@@ -13,6 +13,8 @@ public class PostsSaveRequestDto {
     private String content;
     private String author;
 
+
+    //데이터베이스에 데이터 넣기
     @Builder
     public PostsSaveRequestDto(String title, String content, String author) {
         this.title = title;

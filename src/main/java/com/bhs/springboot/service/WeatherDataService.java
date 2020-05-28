@@ -18,7 +18,9 @@ import java.util.List;
 public class WeatherDataService {
 
     private static String WEATHER_DATA_URL = "http://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%98%A4%EB%8A%98%EB%82%A0%EC%94%A8";
+
     private static String WEATHER_DATA_URL2 = "https://weather.naver.com/rgn/cityWetrMain.nhn";
+
 
 
 
@@ -27,7 +29,6 @@ public class WeatherDataService {
 
         List<WeatherStats> weatherStatsList = new ArrayList<>();
         Document doc = Jsoup.connect(WEATHER_DATA_URL).get();
-
 
         Elements contents = doc.select("div.info_data");
 
@@ -64,6 +65,7 @@ public class WeatherDataService {
     public List<AreaStats> getAreaDatas() throws IOException {
 
         List<AreaStats> areaStatsList = new ArrayList<>();
+
         Document doc2 = Jsoup.connect(WEATHER_DATA_URL2).get();
 
         Elements contents2 = doc2.select("table tbody tr");
