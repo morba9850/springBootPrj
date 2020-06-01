@@ -1,5 +1,7 @@
 package com.bhs.springboot.web;
 
+import com.bhs.springboot.config.auth.LoginUser;
+import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.service.PostsService;
 import com.bhs.springboot.dto.postDto.PostsSaveRequestDto;
 import com.bhs.springboot.dto.postDto.PostsUpdateRequestDto;
@@ -14,9 +16,9 @@ public class PostsApiController {
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto
-                     requestDto) {
+                     requestDto, @LoginUser SessionUser user) {
 
-        return postsService.save(requestDto);
+        return postsService.save(requestDto, user.getEmail());
     }
 
     @PutMapping("/api/v1/posts/{id}")

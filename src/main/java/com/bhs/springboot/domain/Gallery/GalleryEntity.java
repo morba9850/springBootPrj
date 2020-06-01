@@ -18,14 +18,16 @@ public class GalleryEntity {
 
     @Column(length = 50, nullable = false)
     private String title;
+    private String name;
 
     @Column(columnDefinition = "TEXT")
     private String filePath;
 
     @Builder
-    public GalleryEntity(Long id, String title, String filePath) {
+    public GalleryEntity(Long id, String title, String filePath, String name) {
         this.id = id;
         this.title = title;
         this.filePath = filePath;
+        this.name = name;
     }
 }

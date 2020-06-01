@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 public class GalleryService {
     private GalleryRepository galleryRepository;
 
-    public void savePost(GalleryDto galleryDto) {
+    public void savePost(GalleryDto galleryDto)
+    {
+
         galleryRepository.save(galleryDto.toEntity());
     }
+
+
 }

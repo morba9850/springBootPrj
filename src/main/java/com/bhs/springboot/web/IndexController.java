@@ -2,12 +2,16 @@ package com.bhs.springboot.web;
 
 import com.bhs.springboot.config.auth.LoginUser;
 import com.bhs.springboot.config.auth.dto.SessionUser;
+import com.bhs.springboot.dto.GalleryDto;
+import com.bhs.springboot.service.GalleryService;
 import com.bhs.springboot.service.PostsService;
 import com.bhs.springboot.dto.postDto.PostsResponseDto;
+import com.bhs.springboot.service.S3Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.servlet.http.HttpSession;
@@ -19,6 +23,8 @@ public class IndexController {
 
     private final PostsService postsService;
     private final HttpSession httpSession;
+    private S3Service s3Service;
+    private GalleryService galleryService;
 
 
     @GetMapping("/")
@@ -68,6 +74,8 @@ public class IndexController {
 
         return "diary";
     }
+
+
 
 
 

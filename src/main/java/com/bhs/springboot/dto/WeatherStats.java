@@ -15,18 +15,15 @@ public class WeatherStats {
 
 
     private String ulray;
-
     private String weather;
-
     private String ondo;
-
     private String weathericon;
-
     private String imgicon;
+    private String name;
 
     @Builder
     public WeatherStats(int temperature, int rain, String ulray, String weather, String ondo,
-                        String weathericon, String imgicon) {
+                        String weathericon, String imgicon, String name) {
 
         this.temperature = temperature;
         this.rain = rain;
@@ -35,6 +32,7 @@ public class WeatherStats {
         this.ondo = ondo;
         this.weathericon = weathericon;
         this.imgicon = imgicon;
+        this.name = name;
     }
 
     public Weathers toEntity() {
@@ -46,6 +44,7 @@ public class WeatherStats {
                 .ondo(ondo)
                 .weathericon(weathericon)
                 .imgicon(imgicon)
+                .name(name)
                 .build();
     }
 

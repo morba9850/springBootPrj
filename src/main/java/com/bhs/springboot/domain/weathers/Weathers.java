@@ -30,10 +30,11 @@ public class Weathers {
 
     private String imgicon;
 
+    private String name;
 
     @Builder
     public Weathers(int temperature, int rain, String ulray, String weather, String ondo,
-                    String weathericon, String imgicon) {
+                    String weathericon, String imgicon, String name) {
         this.temperature = temperature;
         this.rain = rain;
         this.ulray = ulray;
@@ -41,6 +42,7 @@ public class Weathers {
         this.ondo = ondo;
         this.weathericon = weathericon;
         this.imgicon = imgicon;
+        this.name = name;
 
 
 

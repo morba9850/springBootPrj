@@ -1,6 +1,8 @@
 package com.bhs.springboot.web;
 
 
+import com.bhs.springboot.config.auth.LoginUser;
+import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.dto.AreaStats;
 import com.bhs.springboot.dto.WeatherStats;
 import com.bhs.springboot.dto.postDto.PostsSaveRequestDto;
@@ -28,10 +30,10 @@ public class WeatherController {
     private final WeathersService weathersService;
 
     @GetMapping("/weather")
-    public String weather(Model model) throws IOException {
+    public String weather(Model model, @LoginUser SessionUser user) throws IOException {
 
 
-        List<WeatherStats> weatherStatsList = weatherDataService.getWeatherDatas();
+        List<WeatherStats> weatherStatsList = weatherDataService.getWeatherDatas(user);
         List<AreaStats> areaStatsList = weatherDataService.getAreaDatas();
 
         try{
@@ -55,7 +57,8 @@ public class WeatherController {
 
     //데이터베이스에 데이터넣기
     @PostMapping("/weather")
-    public Long save(@RequestBody WeatherStats requestDto) {
+    public Long save(@RequestBody WeatherStats requestDto)
+    {
         return weathersService.save(requestDto);
     }
 

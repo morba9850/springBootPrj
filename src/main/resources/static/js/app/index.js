@@ -1,9 +1,9 @@
-var main = {
+const main = {
     init : function () {
-        var _this = this;
-        $('#btn-save').on('click', function () {
+        const _this = this;
+        document.getElementById('btn-save').onclick = function() {
             _this.save();
-        });
+        };
 
         $('#btn-update').on('click', function () {
             _this.update();
@@ -14,10 +14,15 @@ var main = {
         });
     },
     save : function () {
-        var data = {
+        // s3로 이미지 전송 로직
+
+        //그 다음 아래 data에 s3로 들어간 이미지 주소 포함시켜
+        const data = {
             title: $('#title').val(),
             author: $('#author').val(),
-            content: $('#content').val()
+            content: $('#content').val(),
+
+            // image: 주소 솰라솰라,
         };
 
         $.ajax({
@@ -34,12 +39,12 @@ var main = {
         });
     },
     update : function () {
-        var data = {
+        const data = {
             title: $('#title').val(),
             content: $('#content').val()
         };
 
-        var id = $('#id').val();
+        const id = $('#id').val();
 
         $.ajax({
             type: 'PUT',
@@ -55,7 +60,7 @@ var main = {
         });
     },
     delete : function () {
-        var id = $('#id').val();
+        const id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',
@@ -73,3 +78,24 @@ var main = {
 };
 
 main.init();
+
+function fileCheck(obj) {
+    const pathpoint = obj.value.lastIndexOf('.');
+    const filepoint = obj.value.substring(pathpoint+1,obj.length);
+    const filetype = filepoint.toLowerCase();
+    if(filetype=='jpg' || filetype=='gif' || filetype=='png' || filetype=='jpeg' || filetype=='bmp') {
+    } else {
+        alert('이미지 파일만 선택할 수 있습니다.');
+        const parentObj  = obj.parentNode;
+        const node = parentObj.replaceChild(obj.cloneNode(true),obj);
+        location.reload();
+    }
+
+    if(filetype=='bmp') {
+        const upload = confirm('BMP 파일은 웹상에서 사용하기엔 적절한 이미지 포맷이 아닙니다.\n그래도 계속 하시겠습니까?');
+        location.reload();
+    }
+    if(!upload) {
+        location.reload();
+    }
+}

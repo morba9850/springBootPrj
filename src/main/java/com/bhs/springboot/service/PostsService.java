@@ -1,5 +1,6 @@
 package com.bhs.springboot.service;
 
+import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.domain.posts.Posts;
 import com.bhs.springboot.domain.posts.PostsRepository;
 import com.bhs.springboot.dto.postDto.PostsListResponseDto;
@@ -20,7 +21,8 @@ public class PostsService {
     private final PostsRepository postsRepository;
 
     @Transactional
-    public Long save(PostsSaveRequestDto requestDto) {
+    public Long save(PostsSaveRequestDto requestDto, String email) {
+        requestDto.setName(email);
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 

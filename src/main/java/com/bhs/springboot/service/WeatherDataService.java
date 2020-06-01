@@ -1,5 +1,7 @@
 package com.bhs.springboot.service;
 
+import com.bhs.springboot.config.auth.LoginUser;
+import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.dto.AreaStats;
 import com.bhs.springboot.dto.WeatherStats;
 import lombok.extern.log4j.Log4j2;
@@ -25,7 +27,7 @@ public class WeatherDataService {
 
 
 
-    public List<WeatherStats> getWeatherDatas() throws IOException {
+    public List<WeatherStats> getWeatherDatas(SessionUser user) throws IOException {
 
         List<WeatherStats> weatherStatsList = new ArrayList<>();
         Document doc = Jsoup.connect(WEATHER_DATA_URL).get();
@@ -41,6 +43,10 @@ public class WeatherDataService {
         String weatherText = tdContents.get(0).text();
         String ondoText = tdContents.get(1).text();
         String ulray = tdContents.get(2).text();
+        String usertext = user.getEmail();
+        log.info("usertext : "+ usertext);
+
+
 
         int temperatureInt = Integer.parseInt(temperatureText);
         int rainInt = Integer.parseInt(rainText);
