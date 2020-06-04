@@ -16,31 +16,30 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-    @AllArgsConstructor
-    public class GalleryController {
+@AllArgsConstructor
+public class GalleryController {
 
-        private S3Service s3Service;
-        private GalleryService galleryService;
+    private S3Service s3Service;
+    private GalleryService galleryService;
 
-        @GetMapping("/gallery")
-        public String dispWrite() {
+    @GetMapping("/gallery")
+    public String dispWrite() {
 
-            return "/gallery";
-        }
-
-        @PostMapping("/gallery")
-        public String execWrite(GalleryDto galleryDto, MultipartFile file, @LoginUser SessionUser user) throws IOException {
-            String imgPath = s3Service.upload(file);
-            String name = user.getEmail();
-            galleryDto.setName(name);
-            galleryDto.setFilePath(imgPath);
-
-            galleryService.savePost(galleryDto);
-
-            return "redirect:/gallery";
-        }
-
-
-
+        return "/gallery";
     }
 
+    @PostMapping("/gallery")
+    public String execWrite(GalleryDto galleryDto, MultipartFile file, @LoginUser SessionUser user) throws IOException {
+        String imgPath = s3Service.upload(file);
+        String name = user.getEmail();
+        galleryDto.setName(name);
+        galleryDto.setFilePath(imgPath);
+
+        galleryService.savePost(galleryDto);
+
+        return "redirect:/gallery";
+    }
+
+
+
+}

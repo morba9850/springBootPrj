@@ -90,8 +90,6 @@ public class WeatherDataService {
             String srcText = tdContents2.select("p.icon img").attr("src");
             String ulText = tdContents2.select("ul.text").text();
 
-
-
             AreaStats areaStats = AreaStats.builder()
                     .area(thText)
                     .img(srcText)

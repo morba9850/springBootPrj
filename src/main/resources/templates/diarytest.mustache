@@ -69,16 +69,16 @@
 
         <div class="container">
 
-            {{#posts}}
+            {{#galleryList}}
 
                 <div class="col-md-12">
                     <div class="media d-block media-bg-white mb-5" data-aos="fade-up"  data-aos-delay="400">
                         <figure>
-                            <a href="blog-single.html"><img src="img/news_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                            <a href="blog-single.html"><img src="{{filePath}}" alt="Image placeholder" class="img-fluid"></a>
                         </figure>
                         <div class="media-body">
                             <h3>{{title}}</h3>
-                            <p class="post-meta"><span> {{id}}</span></p>
+                            <p class="post-meta"><span>{{name}}</span></p>
                             <p class="mb-4">{{modifiedDate}}</p>
                             <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
                         </div>
@@ -86,7 +86,7 @@
                 </div>
 
 
-            {{/posts}}
+            {{/galleryList}}
 
 
 

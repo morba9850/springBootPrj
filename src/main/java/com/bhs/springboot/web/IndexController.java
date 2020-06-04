@@ -8,6 +8,7 @@ import com.bhs.springboot.service.PostsService;
 import com.bhs.springboot.dto.postDto.PostsResponseDto;
 import com.bhs.springboot.service.S3Service;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
+@Log4j2
 public class IndexController {
 
     private final PostsService postsService;
@@ -65,12 +68,18 @@ public class IndexController {
         return "myinfo";
     }
 
-    @GetMapping("/diary")
+    @GetMapping("/diary") // 서비스 뿌려주기
     public String diary(Model model, @LoginUser SessionUser user) {
+
+       log.info("갤러리 서비스 리스트 시작!");
+        List<GalleryDto> galleryDtoList = galleryService.getList();
+        log.info("갤러리 서비스 리스트 끝!");
 
         /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
         model.addAttribute("userNames", user.getName());
         model.addAttribute("posts", postsService.findAllDesc());
+        model.addAttribute("GalleryDto", galleryDtoList);
+
 
         return "diary";
     }

@@ -13,6 +13,7 @@ public class GalleryDto {
     private String filePath;
     private String name;
 
+
     public GalleryEntity toEntity(){
         GalleryEntity build = GalleryEntity.builder()
                 .id(id)
