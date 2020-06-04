@@ -71,14 +71,12 @@ public class IndexController {
     @GetMapping("/diary") // 서비스 뿌려주기
     public String diary(Model model, @LoginUser SessionUser user) {
 
-       log.info("갤러리 서비스 리스트 시작!");
-        List<GalleryDto> galleryDtoList = galleryService.getList();
-        log.info("갤러리 서비스 리스트 끝!");
+
 
         /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
         model.addAttribute("userNames", user.getName());
         model.addAttribute("posts", postsService.findAllDesc());
-        model.addAttribute("GalleryDto", galleryDtoList);
+       /* model.addAttribute("GalleryDto", galleryDtoList);*/
 
 
         return "diary";

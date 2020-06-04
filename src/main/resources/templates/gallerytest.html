@@ -99,56 +99,29 @@
                         <button style="margin-bottom: auto" class="btn btn-primary">등록</button>
                         <a href="/diary" role="button" class="btn btn-secondary">취소</a>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
 </div>
 
-
-
-<div th:each="gallery : ${galleryList}">
-<!--    <div style="margin-bottom: 30px">
-        <p th:inline="text">제목 : [[${gallery.title}]]</p>
-        <img th:src="${gallery.filePath}" style="width: 500px; height: 300px;">
-    </div>-->
-</div>
 
 <hr>
 
-    <div class="section">
+<!--<div th:each="gallery : ${galleryList}">
+    <div style="margin-bottom: 30px">
+        <p th:inline="text">제목 : [[${gallery.title}]]</p>
+        <img th:src="${gallery.imgFullPath}" style="width: 500px; height: 300px;">
+    </div>
 
-        <!--//검색기능-->
-        <form action="/gallery/search" method="GET" class="form-subscribe mb-5">
-            <div class="form-group form-field test">
-                <input type="submit" value="Search" class="btn btn-primary">
-                <input name="keyword" type="text" class="form-control" placeholder="hashtag">
-            </div>
-        </form>
+    <hr>
+</div>-->
 
-        <div th:each="gallery : ${galleryList}" class="container">
-            <div class="col-md-12">
-                <div class="media d-block media-bg-white mb-5" data-aos="fade-up"  data-aos-delay="400">
-                    <figure>
-                       <img th:src="${gallery.filePath}" alt="Image placeholder" class="img-fluid">
-                    </figure>
-                    <div class="media-body">
-                        <h3 th:inline="text">[[${gallery.title}]]</h3>
-                        <p th:inline="text">[[${gallery.name}]]</p>
-                        <!--<p class="mb-4">{{modifiedDate}}</p>-->
-                        <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
-                    </div>
-                </div> <!-- .media -->
-            </div>
-        </div>
-    </div> <!-- .section -->
 
-</div>
+
+
+
 </body>
 
 
