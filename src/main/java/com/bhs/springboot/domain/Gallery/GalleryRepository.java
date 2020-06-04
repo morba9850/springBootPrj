@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface GalleryRepository extends JpaRepository<GalleryEntity, Long> {
 
-    @Override
-    List<GalleryEntity> findAll();
+List<GalleryEntity> findAllByTitleContaining(String keyword);
+
+
 }

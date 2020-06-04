@@ -33,7 +33,7 @@ public class GalleryController {
         model.addAttribute("galleryList", galleryDtoList);
         log.info(galleryDtoList);
 
-        return "/gallery";
+        return "gallery.html";
     }
 
     @PostMapping("/gallery")
@@ -48,9 +48,10 @@ public class GalleryController {
         return "redirect:/gallery";
     }
 
-    @GetMapping
+    @GetMapping("/gallery/search")
     public String search(@RequestParam(value = "keyword") String keyword, Model model) {
-
+        List<GalleryDto> galleryDtoList = galleryService.searchPosts(keyword);
+        model.addAttribute("galleryList", galleryDtoList);
 
         return "/gallery";
     }

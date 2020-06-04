@@ -6,6 +6,7 @@ import com.bhs.springboot.dto.GalleryDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +15,13 @@ import java.util.List;
 public class GalleryService {
     private GalleryRepository galleryRepository;
 
+    //저장하기
     public void savePost(GalleryDto galleryDto)
     {
-
         galleryRepository.save(galleryDto.toEntity());
     }
 
+    //리스트 보여주기
     public List<GalleryDto> getList() {
         List<GalleryEntity> galleryEntityList = galleryRepository.findAll();
         List<GalleryDto> galleryDtoList = new ArrayList<>();
@@ -40,5 +42,20 @@ public class GalleryService {
                 .build();
     }
 
+    //검색해서 리스트 보여주기
+    @Transactional
+    public List<GalleryDto> searchPosts(String keyword) {
+        List<GalleryEntity> Gallerys = galleryRepository.findAllByTitleContaining(keyword);
+        List<GalleryDto> galleryDtoList = new ArrayList<>();
 
+        if(Gallerys.isEmpty())
+            return galleryDtoList;
+
+        for(GalleryEntity galleryEntity : Gallerys) {
+            galleryDtoList.add(this.convertEntityToDto(galleryEntity));
+        }
+
+        return galleryDtoList;
+
+    }
 }

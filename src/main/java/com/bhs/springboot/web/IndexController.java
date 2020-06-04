@@ -71,8 +71,6 @@ public class IndexController {
     @GetMapping("/diary") // 서비스 뿌려주기
     public String diary(Model model, @LoginUser SessionUser user) {
 
-
-
         /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
         model.addAttribute("userNames", user.getName());
         model.addAttribute("posts", postsService.findAllDesc());
