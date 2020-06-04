@@ -33,26 +33,32 @@ public class GalleryController {
         model.addAttribute("galleryList", galleryDtoList);
         log.info(galleryDtoList);
 
-        return "gallery.html";
+        return "/gallery";
     }
 
     @PostMapping("/gallery")
     public String execWrite(GalleryDto galleryDto, MultipartFile file, @LoginUser SessionUser user) throws IOException {
+        log.info("s3 컨트롤러 시작합니다");
         String imgPath = s3Service.upload(file);
         String name = user.getEmail();
         galleryDto.setName(name);
         galleryDto.setFilePath(imgPath);
-
+        log.info("s3 다녀옴 갤러리 서비스 갓다올게");
         galleryService.savePost(galleryDto);
+        log.info("갓다왓다");
+        log.info(galleryDto);
 
         return "redirect:/gallery";
     }
 
     @GetMapping("/gallery/search")
     public String search(@RequestParam(value = "keyword") String keyword, Model model) {
-        List<GalleryDto> galleryDtoList = galleryService.searchPosts(keyword);
-        model.addAttribute("galleryList", galleryDtoList);
 
+        log.info("검색서비스 다녀오겠습니다");
+        List<GalleryDto> galleryDtoList = galleryService.searchPosts(keyword);
+        log.info("검색서비스 다녀왔다 ㅎ");
+        model.addAttribute("galleryList", galleryDtoList);
+        log.info(galleryDtoList);
         return "/gallery";
     }
 
