@@ -55,10 +55,10 @@ public class GalleryController {
     public String search(@RequestParam(value = "keyword") String keyword, Model model) {
 
         log.info("검색서비스 다녀오겠습니다");
-        List<GalleryDto> galleryDtoList = galleryService.searchPosts(keyword);
+        List<GalleryDto> galleryDtoList2 = galleryService.searchPosts(keyword);
         log.info("검색서비스 다녀왔다 ㅎ");
-        model.addAttribute("galleryList", galleryDtoList);
-        log.info(galleryDtoList);
+        model.addAttribute("galleryList", galleryDtoList2);
+        log.info(galleryDtoList2);
         return "/gallery";
     }
 

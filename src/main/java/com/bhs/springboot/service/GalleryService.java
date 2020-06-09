@@ -46,16 +46,16 @@ public class GalleryService {
     @Transactional
     public List<GalleryDto> searchPosts(String keyword) {
         List<GalleryEntity> Gallerys = galleryRepository.findAllByTitleContaining(keyword);
-        List<GalleryDto> galleryDtoList = new ArrayList<>();
+        List<GalleryDto> galleryDtoList2 = new ArrayList<>();
 
         if(Gallerys.isEmpty())
-            return galleryDtoList;
+            return galleryDtoList2;
 
         for(GalleryEntity galleryEntity : Gallerys) {
-            galleryDtoList.add(this.convertEntityToDto(galleryEntity));
+            galleryDtoList2.add(this.convertEntityToDto(galleryEntity));
         }
 
-        return galleryDtoList;
+        return galleryDtoList2;
 
     }
 }
