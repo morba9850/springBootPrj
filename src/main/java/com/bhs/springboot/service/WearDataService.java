@@ -33,14 +33,10 @@ public class WearDataService {
         Document doc3 = Jsoup.connect(WEAR_DATA_URL3).get();
         Document doc4 = Jsoup.connect(WEAR_DATA_URL4).get();
 
-
-
         Elements contents = doc.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
         Elements contents2 = doc2.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
         Elements contents3 = doc3.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
         Elements contents4 = doc4.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
-
-
 
             WearStats wearStats = WearStats.builder()
                     .photo(contents.select("img").attr("src"))

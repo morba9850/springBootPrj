@@ -48,7 +48,6 @@ public class WeatherController {
             List<WearDetailDto> wearDetailDtoList = wearDataService.get5service();
         }
 
-        model.addAttribute("wearDetailDto", wearDetailDtoList);
 
         model.addAttribute("weatherStats", weatherStatsList);
         model.addAttribute("areaStats", areaStatsList);
