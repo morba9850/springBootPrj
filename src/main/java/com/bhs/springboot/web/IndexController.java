@@ -61,10 +61,13 @@ public class IndexController {
     @GetMapping("/myinfo")
     public String myInfo(Model model, @LoginUser SessionUser user) {
 
-        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
+
         model.addAttribute("userNames", user.getName());
-
-
+        model.addAttribute("userEmails", user.getEmail());
+        log.info("사용자 정보 뿌리기");
+        log.info(user);
+        System.out.println(user.getEmail());
+        System.out.println(user.getName());
         return "myinfo";
     }
 
@@ -74,7 +77,7 @@ public class IndexController {
         /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
         model.addAttribute("userNames", user.getName());
         model.addAttribute("posts", postsService.findAllDesc());
-       /* model.addAttribute("GalleryDto", galleryDtoList);*/
+        /* model.addAttribute("GalleryDto", galleryDtoList);*/
 
 
         return "diary";
@@ -85,8 +88,3 @@ public class IndexController {
 
 
 }
-
-
-
-
-

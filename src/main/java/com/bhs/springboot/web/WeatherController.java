@@ -3,9 +3,9 @@ package com.bhs.springboot.web;
 
 import com.bhs.springboot.config.auth.LoginUser;
 import com.bhs.springboot.config.auth.dto.SessionUser;
-import com.bhs.springboot.dto.AreaStats;
-import com.bhs.springboot.dto.WeatherStats;
+import com.bhs.springboot.dto.*;
 import com.bhs.springboot.dto.postDto.PostsSaveRequestDto;
+import com.bhs.springboot.service.WearDataService;
 import com.bhs.springboot.service.WeatherDataService;
 import com.bhs.springboot.service.WeathersService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +28,7 @@ public class WeatherController {
 
     private final WeatherDataService weatherDataService;
     private final WeathersService weathersService;
+    private final WearDataService wearDataService;
 
     @GetMapping("/weather")
     public String weather(Model model, @LoginUser SessionUser user) throws IOException {
@@ -36,15 +37,23 @@ public class WeatherController {
         List<WeatherStats> weatherStatsList = weatherDataService.getWeatherDatas(user);
         List<AreaStats> areaStatsList = weatherDataService.getAreaDatas();
 
+        log.info(weatherStatsList.get(0).getRain());
         try{
             Long id = weathersService.save(weatherStatsList.get(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        if (weatherStatsList.get(0).getRain() < 100) {
+            List<WearDetailDto> wearDetailDtoList = wearDataService.get5service();
+        }
+
+        model.addAttribute("wearDetailDto", wearDetailDtoList);
 
         model.addAttribute("weatherStats", weatherStatsList);
         model.addAttribute("areaStats", areaStatsList);
+
+
 
         System.out.println(areaStatsList);
         System.out.println("끝");

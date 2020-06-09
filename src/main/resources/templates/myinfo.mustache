@@ -7,7 +7,8 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-7" data-aos="fade-up">
                         <h2 class="heading">내 정보</h2>
-                        <p class="lead">My Information</div>
+                        <p class="lead">My Information</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,26 +26,26 @@
 
                             </a>
                         </li>
-
-
                     </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-breakfast" role="tabpanel" aria-labelledby="pills-breakfast-tab">
-                            <div class="d-block d-md-flex menu-food-item">
-                                <div class="text order-1 mb-3">
-                                    <h3><a href="#">Warm Spinach Dip &amp; Chips</a></h3>
-                                    <p>Spinach and artichokes in a creamy cheese dip with warm tortilla chips &amp; salsa.</p>
-                                </div>
-                                <div class="price order-2">
-                                    <strong>$10.49</strong>
+
+                    {{#userNames}}
+                        {{#userEmails}}
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-breakfast" role="tabpanel" aria-labelledby="pills-breakfast-tab">
+                                    <div class="d-block d-md-flex menu-food-item">
+                                        <div class="text order-1 mb-3">
+                                            <h3><a href="#">{{userNames}}</a></h3>
+                                            <p>{{userEmails}}</p>
+                                        </div>
+
+                                        <div class="price order-2">
+                                            <strong>탈퇴</strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-
-                        </div>
-                    </div>
-
-
+                        {{/userEmails}}
+                    {{/userNames}}
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
 
 </div>
 
-</div>
+
 
 
 {{>layout/footer2}}

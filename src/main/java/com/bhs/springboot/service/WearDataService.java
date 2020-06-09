@@ -1,6 +1,7 @@
 package com.bhs.springboot.service;
 
 
+import com.bhs.springboot.dto.WearDetailDto;
 import com.bhs.springboot.dto.WearStats;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -32,6 +33,8 @@ public class WearDataService {
         Document doc3 = Jsoup.connect(WEAR_DATA_URL3).get();
         Document doc4 = Jsoup.connect(WEAR_DATA_URL4).get();
 
+
+
         Elements contents = doc.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
         Elements contents2 = doc2.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
         Elements contents3 = doc3.select("ul.snap-article-list.boxed-article-list.article-list.center.list");
@@ -52,6 +55,22 @@ public class WearDataService {
 
         return wearStatsList;
 
+    }
+
+    public List<WearDetailDto> get5service() throws IOException {
+
+        List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
+        String top = "춥다";
+        String shose = "추워";
+
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .top(top)
+                .shose(shose)
+                .build();
+
+        wearDetailDtoList.add(wearDetailDto);
+
+        return wearDetailDtoList;
     }
 
 }

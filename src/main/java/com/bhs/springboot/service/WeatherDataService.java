@@ -2,7 +2,9 @@ package com.bhs.springboot.service;
 
 import com.bhs.springboot.config.auth.LoginUser;
 import com.bhs.springboot.config.auth.dto.SessionUser;
+import com.bhs.springboot.domain.weathers.Weathers;
 import com.bhs.springboot.dto.AreaStats;
+import com.bhs.springboot.dto.WearDetailDto;
 import com.bhs.springboot.dto.WeatherStats;
 import lombok.extern.log4j.Log4j2;
 import org.jsoup.Jsoup;
@@ -87,6 +89,8 @@ public class WeatherDataService {
             }
 
 
+
+
             String srcText = tdContents2.select("p.icon img").attr("src");
             String ulText = tdContents2.select("ul.text").text();
 
@@ -104,4 +108,5 @@ public class WeatherDataService {
 
         return areaStatsList;
     }
+
 }
