@@ -13,5 +13,4 @@ public class WearDetailDto {
     private String shose;
 
 
-
 }

@@ -83,6 +83,11 @@ public class IndexController {
         return "diary";
     }
 
+    @GetMapping("/admin")
+    public String admin(Model model) {
+
+        return "admin";
+    }
 
 
 

@@ -48,25 +48,82 @@ public class WearDataService {
         wearStatsList.add(wearStats);
             System.out.println(wearStats.toString());
 
-
         return wearStatsList;
 
     }
 
     public List<WearDetailDto> get5service() throws IOException {
-
         List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
-        String top = "춥다";
-        String shose = "추워";
-
+        String top = "지금 날씨가 엄청 추워요! 패딩을 어떠신가요?";
         WearDetailDto wearDetailDto = WearDetailDto.builder()
                 .top(top)
+                .build();
+        wearDetailDtoList.add(wearDetailDto);
+        return wearDetailDtoList;
+    }
+    public List<WearDetailDto> get610service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
+        String top = "지금 날씨가 쌀쌀하네요 코트 어떠신가요?";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .top(top)
+                .build();
+        wearDetailDtoList.add(wearDetailDto);
+        return wearDetailDtoList;
+    }
+    public List<WearDetailDto> get1021service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
+        String top = "지금 날씨엔 간절기 자켓이 필요하겠어요";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .top(top)
+                .build();
+        wearDetailDtoList.add(wearDetailDto);
+        return wearDetailDtoList;
+    }
+    public List<WearDetailDto> get2029service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
+        String top = "지금 날씨가 매우 좋아요! 셔츠 어떠신가요?";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .top(top)
+                .build();
+        wearDetailDtoList.add(wearDetailDto);
+        return wearDetailDtoList;
+    }
+    public List<WearDetailDto> get28service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList = new ArrayList<>();
+        String top = "날씨가 더워요~ 면티 어떠신가요?";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .top(top)
+                .build();
+        wearDetailDtoList.add(wearDetailDto);
+        return wearDetailDtoList;
+    }
+
+    public List<WearDetailDto> getrain20service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList2 = new ArrayList<>();
+        String shose = "비는 안올것 같아요 단화 어떠신가요? ";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
                 .shose(shose)
                 .build();
-
-        wearDetailDtoList.add(wearDetailDto);
-
-        return wearDetailDtoList;
+        wearDetailDtoList2.add(wearDetailDto);
+        return wearDetailDtoList2;
+    }
+    public List<WearDetailDto> getrain2071service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList2 = new ArrayList<>();
+        String shose = "날씨가 흐리네요 운동화 어떠세요?";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .shose(shose)
+                .build();
+        wearDetailDtoList2.add(wearDetailDto);
+        return wearDetailDtoList2;
+    }
+    public List<WearDetailDto> getrain70service() throws IOException {
+        List<WearDetailDto> wearDetailDtoList2 = new ArrayList<>();
+        String shose = "비가올 확률이 크네요 부츠 어떠신가요?";
+        WearDetailDto wearDetailDto = WearDetailDto.builder()
+                .shose(shose)
+                .build();
+        wearDetailDtoList2.add(wearDetailDto);
+        return wearDetailDtoList2;
     }
 
 }

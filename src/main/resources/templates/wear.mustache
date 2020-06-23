@@ -19,13 +19,15 @@
                 <div class="col-md-7" data-aos="fade-up">
                     <img src="img/clothes.jpg" alt="Image placeholder" class="img-fluid">
                 </div>
+                {{#wearDetailDto}}
                 <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
                     <h2 class="mb-4">오늘 날씨의 옷차림</h2>
-                    <p>기온에따른 데이터.</p>
-                    <p>강수에따른 데이터.</p>
-
-
+                    <p>{{top}}</p>
+                {{#wearDetailDto2}}
+                    <p>{{shose}}</p>
+                {{/wearDetailDto2}}
                 </div>
+                {{/wearDetailDto}}
             </div>
         </div>
 

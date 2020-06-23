@@ -44,9 +44,6 @@ public class WeatherController {
             e.printStackTrace();
         }
 
-        if (weatherStatsList.get(0).getRain() < 100) {
-            List<WearDetailDto> wearDetailDtoList = wearDataService.get5service();
-        }
 
 
         model.addAttribute("weatherStats", weatherStatsList);
