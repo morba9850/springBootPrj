@@ -1,6 +1,15 @@
 const main = {
     init : function () {
         const _this = this;
+
+        $('#btn-userdelete').on('click', function () {
+            _this.userdelete();
+        });
+
+        $('#btn-delete').on('click', function () {
+            _this.delete();
+        });
+
         document.getElementById('btn-save').onclick = function() {
             _this.save();
         };
@@ -9,9 +18,7 @@ const main = {
             _this.update();
         });
 
-        $('#btn-delete').on('click', function () {
-            _this.delete();
-        });
+
     },
     save : function () {
         // s3로 이미지 전송 로직
@@ -60,15 +67,24 @@ const main = {
         });
     },
     delete : function () {
-        const id = $('#id').val();
+        $.ajax({
+            type: 'DELETE',
+            url: '/adminupdate/'+id,
+        }).done(function() {
+            alert('삭제되었습니다.');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    userdelete : function () {
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
-            alert('글이 삭제되었습니다.');
+            url: '/myinfo',
+        }).done(function () {
+            alert('탈퇴되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

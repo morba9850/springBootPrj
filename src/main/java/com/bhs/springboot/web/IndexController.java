@@ -3,7 +3,9 @@ package com.bhs.springboot.web;
 import com.bhs.springboot.config.auth.LoginUser;
 import com.bhs.springboot.config.auth.dto.SessionUser;
 import com.bhs.springboot.dto.GalleryDto;
+import com.bhs.springboot.dto.userDto.UserResponseDto;
 import com.bhs.springboot.service.GalleryService;
+import com.bhs.springboot.service.MyinfoService;
 import com.bhs.springboot.service.PostsService;
 import com.bhs.springboot.dto.postDto.PostsResponseDto;
 import com.bhs.springboot.service.S3Service;
@@ -26,21 +28,14 @@ public class IndexController {
 
     private final PostsService postsService;
     private final HttpSession httpSession;
+    private final MyinfoService myInfoService;
     private S3Service s3Service;
     private GalleryService galleryService;
 
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
+    public String index(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
-
-        if (user != null) {
-            model.addAttribute("userNames", user.getName());
-            System.out.println(user.getEmail());
-            System.out.println(user.getName());
-        }
 
         return "index";
     }
@@ -49,6 +44,7 @@ public class IndexController {
     public String postsSave() {
         return "posts-save";
     }
+
 
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
@@ -60,8 +56,6 @@ public class IndexController {
 
     @GetMapping("/myinfo")
     public String myInfo(Model model, @LoginUser SessionUser user) {
-
-
         model.addAttribute("userNames", user.getName());
         model.addAttribute("userEmails", user.getEmail());
         log.info("사용자 정보 뿌리기");
@@ -71,24 +65,22 @@ public class IndexController {
         return "myinfo";
     }
 
+    @DeleteMapping("/myinfo")
+    public void delete(@LoginUser SessionUser user) {
+        log.info(user.getEmail());
+        myInfoService.UserDelete(user.getEmail());
+    }
+
+
+
     @GetMapping("/diary") // 서비스 뿌려주기
     public String diary(Model model, @LoginUser SessionUser user) {
 
-        /*SessionUser user = (SessionUser) httpSession.getAttribute("user");*/
         model.addAttribute("userNames", user.getName());
         model.addAttribute("posts", postsService.findAllDesc());
-        /* model.addAttribute("GalleryDto", galleryDtoList);*/
-
 
         return "diary";
     }
-
-    @GetMapping("/admin")
-    public String admin(Model model) {
-
-        return "admin";
-    }
-
 
 
 
