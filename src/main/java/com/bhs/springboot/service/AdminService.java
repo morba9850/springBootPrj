@@ -35,12 +35,7 @@ public class AdminService {
 
     @Transactional
     public void delete (Long id) {
-        log.info("admin delete 서비스 시작");
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id=" + id));
-        log.info("admin delete 서비스 끝");
-        userRepository.delete(user);
-
+        userRepository.deleteById(id);
     }
 
 

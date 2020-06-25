@@ -34,11 +34,8 @@ public class AdminController {
     }
 //회원삭제
     @DeleteMapping("/adminupdate/{id}")
-    public Long delete(@PathVariable Long id) {
-        log.info("admin delete 컨트롤러 시작");
+    public void delete(@PathVariable Long id) {
         adminService.delete(id);
-        log.info("admin delete 서비스 끝");
-        return id;
     }
 }
 

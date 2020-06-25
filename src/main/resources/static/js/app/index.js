@@ -1,13 +1,9 @@
 const main = {
     init : function () {
         const _this = this;
-
+        console.log("시작합니다 버튼딜리트")
         $('#btn-userdelete').on('click', function () {
             _this.userdelete();
-        });
-
-        $('#btn-delete').on('click', function () {
-            _this.delete();
         });
 
         document.getElementById('btn-save').onclick = function() {
@@ -66,18 +62,6 @@ const main = {
             alert(JSON.stringify(error));
         });
     },
-    delete : function () {
-        $.ajax({
-            type: 'DELETE',
-            url: '/adminupdate/'+id,
-        }).done(function() {
-            alert('삭제되었습니다.');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-
     userdelete : function () {
 
         $.ajax({
@@ -114,4 +98,17 @@ function fileCheck(obj) {
     if(!upload) {
         location.reload();
     }
+}
+
+function adminDelete(id) {
+    console.log("ajax 시작")
+    $.ajax({
+        type: 'DELETE',
+        url: '/adminupdate/' + id,
+    }).done(function() {
+        alert('삭제되었습니다.');
+        window.location.href = '/admin';
+    }).fail(function (error) {
+        window.location.href = '/admin';
+    });
 }
